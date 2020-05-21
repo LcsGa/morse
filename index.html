@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <link
+            rel="stylesheet"
+            media="screen and (max-width:500px)"
+            href="style.mobile.css"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap"
+            rel="stylesheet"
+        />
+        <title>Encodage Morse</title>
+    </head>
+    <body>
+        <div class="section">
+            <h1>Encodage Morse</h1>
+            <div class="separator"></div>
+            <span onclick="reset()">x</span>
+            <textarea id="#initial-text" onkeyup="encodeText()"></textarea>
+        </div>
+        <p></p>
+        <script src="script.js"></script>
+    </body>
+</html>

@@ -1,0 +1,78 @@
+/* general */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+    background: #333;
+    color: #ddd;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* section */
+
+.section {
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    flex: 1;
+    max-height: 50vh;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+.separator {
+    background: #ddd;
+    height: 2px;
+    width: 20rem;
+}
+
+span {
+    font-weight: 700;
+    color: #888;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+textarea {
+    padding: 0.3rem 0.5rem;
+    resize: none;
+    width: 100%;
+    border-radius: 20px;
+    box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.7);
+    flex-grow: 1;
+    min-height: 15vh;
+}
+
+textarea:focus {
+    outline: none;
+}
+
+span:hover {
+    color: #fff;
+}
+
+p {
+    padding: 3rem 1rem 0;
+    letter-spacing: 0.2rem;
+    word-spacing: 0.3rem;
+    font-weight: 500;
+    text-align: center;
+    flex: 2;
+}
