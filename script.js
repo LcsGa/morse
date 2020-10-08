@@ -1,6 +1,10 @@
+function toUpper(text) {
+    return text.charAt(0).toUpperCase() + text.substr(1);
+}
+
 function encodeText() {
-    const initText = document.querySelector("textarea").value;
-    const answerText = document.querySelector("p");
+    const initText = document.querySelector("#initial-text").value;
+    const answerText = document.querySelector("#answer-text");
 
     const init = initText.toLowerCase();
     answerText.innerHTML = "";
@@ -199,9 +203,6 @@ function encodeText() {
             case "ç":
                 answerText.innerHTML += "-.-.. ";
                 break;
-            case "ch":
-                answerText.innerHTML += "---- ";
-                break;
             case "è":
                 answerText.innerHTML += ".-..- ";
                 break;
@@ -212,14 +213,248 @@ function encodeText() {
                 answerText.innerHTML += "---. ";
                 break;
             default:
-                return;
+                answerText.innerHTML += `${init[i]} `;
+                break;
+        }
+    }
+}
+
+function decodeText() {
+    const initText = document.querySelector("#initial-text").value;
+    const answerText = document.querySelector("#answer-text");
+
+    const initSentence = initText.split(" ");
+    answerText.innerHTML = "";
+
+    for (let i = 0; i < initSentence.length; i++) {
+        switch (initSentence[i]) {
+            case ".-":
+                answerText.innerHTML += "a";
+                break;
+            case "-...":
+                answerText.innerHTML += "b";
+                break;
+            case "-.-.":
+                answerText.innerHTML += "c";
+                break;
+            case "-..":
+                answerText.innerHTML += "d";
+                break;
+            case ".":
+                answerText.innerHTML += "e";
+                break;
+            case "..-.":
+                answerText.innerHTML += "f";
+                break;
+            case "--.":
+                answerText.innerHTML += "g";
+                break;
+            case "....":
+                answerText.innerHTML += "h";
+                break;
+            case "..":
+                answerText.innerHTML += "i";
+                break;
+            case ".---":
+                answerText.innerHTML += "j";
+                break;
+            case "-.-":
+                answerText.innerHTML += "k";
+                break;
+            case ".-..":
+                answerText.innerHTML += "l";
+                break;
+            case "--":
+                answerText.innerHTML += "m";
+                break;
+            case "-.":
+                answerText.innerHTML += "n";
+                break;
+            case "---":
+                answerText.innerHTML += "o";
+                break;
+            case ".--.":
+                answerText.innerHTML += "p";
+                break;
+            case "--.-":
+                answerText.innerHTML += "q";
+                break;
+            case ".-.":
+                answerText.innerHTML += "r";
+                break;
+            case "...":
+                answerText.innerHTML += "s";
+                break;
+            case "-":
+                answerText.innerHTML += "t";
+                break;
+            case "..-":
+                answerText.innerHTML += "u";
+                break;
+            case "...-":
+                answerText.innerHTML += "v";
+                break;
+            case ".--":
+                answerText.innerHTML += "w";
+                break;
+            case "-..-":
+                answerText.innerHTML += "x";
+                break;
+            case "-.--":
+                answerText.innerHTML += "y";
+                break;
+            case "--..":
+                answerText.innerHTML += "z";
+                break;
+            case "-----":
+                answerText.innerHTML += "0";
+                break;
+            case ".----":
+                answerText.innerHTML += "1";
+                break;
+            case "..---":
+                answerText.innerHTML += "2";
+                break;
+            case "...--":
+                answerText.innerHTML += "3";
+                break;
+            case "....-":
+                answerText.innerHTML += "4";
+                break;
+            case ".....":
+                answerText.innerHTML += "5";
+                break;
+            case "-....":
+                answerText.innerHTML += "6";
+                break;
+            case "--...":
+                answerText.innerHTML += "7";
+                break;
+            case "---..":
+                answerText.innerHTML += "8";
+                break;
+            case "----.":
+                answerText.innerHTML += "9";
+                break;
+            case "/":
+                answerText.innerHTML += " ";
+                break;
+            case ".-.-.-":
+                answerText.innerHTML += ".";
+                break;
+            case "--..--":
+                answerText.innerHTML += ",";
+                break;
+            case "..--..":
+                answerText.innerHTML += "?";
+                break;
+            case ".----.":
+                answerText.innerHTML += "'";
+                break;
+            case "-.-.--":
+                answerText.innerHTML += "!";
+                break;
+            case "-..-.":
+                answerText.innerHTML += "/";
+                break;
+            case "-.--.":
+                answerText.innerHTML += "(";
+                break;
+            case "-.--.-":
+                answerText.innerHTML += ")";
+                break;
+            case ".-...":
+                answerText.innerHTML += "&";
+                break;
+            case "---...":
+                answerText.innerHTML += ":";
+                break;
+            case "-.-.-.":
+                answerText.innerHTML += ";";
+                break;
+            case "-...-":
+                answerText.innerHTML += "=";
+                break;
+            case ".-.-.":
+                answerText.innerHTML += "+";
+                break;
+            case "-....-":
+                answerText.innerHTML += "-";
+                break;
+            case "..--.-":
+                answerText.innerHTML += "_";
+                break;
+            case ".-..-.":
+                answerText.innerHTML += '"';
+                break;
+            case "...-..-":
+                answerText.innerHTML += "$";
+                break;
+            case ".--.-.":
+                answerText.innerHTML += "@";
+                break;
+            case ".-.-":
+                answerText.innerHTML += "ä";
+                break;
+            case ".--.-":
+                answerText.innerHTML += "à";
+                break;
+            case "-.-..":
+                answerText.innerHTML += "ç";
+                break;
+            case ".-..-":
+                answerText.innerHTML += "è";
+                break;
+            case "..-..":
+                answerText.innerHTML += "é";
+                break;
+            case "---.":
+                answerText.innerHTML += "ö";
+                break;
+            default:
+                answerText.innerHTML += `${initSentence[i]} `;
+                break;
         }
     }
 
-    console.log(initText.length);
+    answerText.innerHTML = toUpper(answerText.innerHTML);
+}
+
+function transformText() {
+    let title = document.querySelector("h1");
+
+    if (title.innerHTML == "Encodage Morse") {
+        encodeText();
+    } else {
+        decodeText();
+    }
 }
 
 function reset() {
-    document.querySelector("textarea").value = "";
-    document.querySelector("p").innerHTML = "";
+    document.querySelector("#initial-text").value = "";
+    document.querySelector("#answer-text").innerHTML = "";
+}
+
+function change() {
+    let title = document.querySelector("h1");
+
+    reset();
+
+    if (title.innerHTML == "Encodage Morse") {
+        title.innerHTML = "Décodage Morse";
+    } else {
+        title.innerHTML = "Encodage Morse";
+    }
+}
+
+function copyText() {
+    let copyText = document.querySelector("#answer-text").innerHTML;
+    navigator.clipboard.writeText(copyText);
+}
+
+async function pasteText() {
+    reset();
+    const text = await navigator.clipboard.readText();
+    document.querySelector("#initial-text").value = text;
+    transformText();
 }
