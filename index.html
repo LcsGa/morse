@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" permissions="clipboardRead">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -13,16 +13,32 @@
             href="https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@300;400;500;600&display=swap"
             rel="stylesheet"
         />
+        <script
+            src="https://kit.fontawesome.com/67cd12d136.js"
+            crossorigin="anonymous"
+        ></script>
         <title>Encodage Morse</title>
     </head>
     <body>
         <div class="section">
-            <h1>Encodage Morse</h1>
-            <div class="separator"></div>
-            <span onclick="reset()">x</span>
-            <textarea id="#initial-text" onkeyup="encodeText()"></textarea>
+            <div class="type-of-code">
+                <h1>Encodage Morse</h1>
+
+                <div class="separator-block">
+                    <div class="separator"></div>
+                    <i class="fas fa-exchange-alt" onclick="change()"></i>
+                    <div class="separator"></div>
+                </div>
+            </div>
+
+            <div class="initial-text-symbols">
+                <i class="fas fa-paste" onclick="pasteText()"></i>
+                <span onclick="reset()">x</span>
+            </div>
+            <textarea id="initial-text" onkeyup="transformText()"></textarea>
         </div>
-        <p></p>
+        <textarea id="answer-text" readonly="readonly"></textarea>
+        <i class="fas fa-copy" onclick="copyText()"></i>
         <script src="script.js"></script>
     </body>
 </html>
